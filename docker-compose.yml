@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  
+  db:
+    image: mysql
+    healthcheck:
+      test: "mysql -uqwert -p12345 -e 'select 1;'"
+      interval: 1s
+      retries: 20
+    volumes:
+      - ./dbdata:/var/lib/mysql
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: nodejs
+      MYSQL_USER: qwert
