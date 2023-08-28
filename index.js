@@ -178,20 +178,7 @@ app.delete('/items/:id', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
 startApp();
 
 
 
-=======
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=>console.log(`This server is running on port : ${PORT}`))
->>>>>>> 37dcfd348c6432187a7dc8a048d4a1d87f45580c
->>>>>>> 907ecdfa7da03168c8d8190c7275df41ae0d4a1b
